@@ -73,16 +73,11 @@ console.log(someURL);
 */
 
 //Title case a string
-/*
-var titleCase = function(string){
-	var stringSplit = string.split(" ");
-	string.replace(stringSplit[0])
-	return stringSplit;
-}
 
-var splitsting = titleCase("hello there a b cee dee efff");
-console.log(splitsting);
-*/
+//var titleCase = function(string){
+
+//}
+
 
 
 //Change seperator
@@ -98,6 +93,51 @@ var changeSeperator = function(string,orgSeperator,newSeporator){
 
 //var stringADing = changeSeperator("a,b,c,d,e",",","/");
 //console.log(stringADing);
+
+
+///***** NUMBERS *****/////
+
+// Format a number and it's decimal places.
+
+var formatNumber = function(number,places){
+	var formattedNumber = number.toFixed(places);
+	return formattedNumber
+}
+
+//var formattedNumber = formatNumber(21.123456, 3);
+//console.log(formattedNumber);
+
+//Fuzzy Match -Puurrrrrr.....
+
+var fuzzyMatch = function(num1,num2,percent){
+	var numPercent;
+	var isFuzzyMatch;
+	if(num1 > num2){
+		numPercent = (num2 / num1) * 100;
+		if(numPercent <= percent){
+			isFuzzyMatch = num2 + " is " + numPercent + "% of " + num1 + " and within " + percent + "% of " + num1;
+		}else{
+			isFuzzyMatch = num2 + " is " + numPercent + "% of " + num1 + " and NOT within " + percent + "% of " + num1;
+		}
+	}else if(num1 < num2){
+		numPercent = (num1 / num2) * 100;
+		if(numPercent <= percent){
+			isFuzzyMatch = num1 + " is " + numPercent + "% of " + num2 + " and within " + percent + "% of " + num2;
+		}else{
+			isFuzzyMatch = num1 + " is " + numPercent + "% of " + num2 + " and NOT within " + percent + "% of " + num2;
+		}
+	}
+	return isFuzzyMatch;	
+};
+
+//var isMatch = fuzzyMatch(5,20,50);
+//console.log(isMatch);
+
+//Difference between two days
+
+var timeDifference = function(day1,day2,string){
+	
+}
 
 
 
