@@ -162,6 +162,18 @@ var timeDifference = function(date1,date2,string){
 //console.log(timeDif);
 
 
+var stringNumber = function(string){
+	var num = parseInt(string);
+	if(num === NaN){
+		return notnum;
+	}else{
+		return num;
+	}
+}
+
+var convert = stringNumber("40");
+console.log(convert);
+
 
 
 
