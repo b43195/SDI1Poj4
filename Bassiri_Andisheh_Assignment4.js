@@ -135,10 +135,31 @@ var fuzzyMatch = function(num1,num2,percent){
 
 //Difference between two days
 
-var timeDifference = function(day1,day2,string){
-	
-}
+var timeDifference = function(date1,date2,string){
+	var date1value = Date.parse(date1);
+	var date2value = Date.parse(date2);
+	var dateDifference;
+	var hourDifference;
+	var dayDifference;
 
+	if(date1value > date2value){
+		dateDifference = date1value - date2value;
+	}else{
+		dateDifference = date2value - date1value;
+	}
+
+	if(string == "hours"){
+		hourDifference = (dateDifference / 60000) /60;
+		return	hourDifference;
+	}else if(string = "days"){
+		dayDifference = (dateDifference / 60000) /60;
+		dayDifference = dayDifference / 24;
+		return dayDifference;
+	}
+};	
+
+//var timeDif = timeDifference("Jan 20, 2012", "Jan 21, 2012", "days");
+//console.log(timeDif);
 
 
 
