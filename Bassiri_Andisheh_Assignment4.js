@@ -171,12 +171,25 @@ var stringNumber = function(string){
 	}
 }
 
-var convert = stringNumber("40");
-console.log(convert);
+//var convert = stringNumber("40");
+///console.log(convert);
 
+///***** Arrays *****///
 
+var smallestGreaterThan = function(comparison,array){
+	var answer;
+	var biggerThan = function(element, index, array){
+		return (element > comparison);
+	}
+	var filtered = array.filter(biggerThan);
+	filtered.sort(a,b);
+	answer = filtered[0];
+	return answer;
+}
 
-
+var array1 = [1,2,3,4,5,6,7,8,9,10,20,30,40,50]
+var smllestGreaterThan = smallestGreaterThan(10, array1);
+console.log(smllestGreaterThan);
 
 
 
