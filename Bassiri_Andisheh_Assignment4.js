@@ -61,7 +61,7 @@ var myLibrary = function(){
 		if(string.contains(" ")){
 			url = false;
 		}else {
-			if(string.startsWith("http://") || string.startsWith("https://")){
+			if(string.startsWith("http://") || string.startsWith("https://")){ //Make Up: Project 2 - use of OR || boolean.
 				url = true;
 			}else{
 				console.log(" isURL is false, string does not contain \"http://\" or \"https://\" ")
@@ -72,7 +72,7 @@ var myLibrary = function(){
 	}
 
 
-	var titleCase = function(string){
+	var titleCase = function(string){ //Make Up: Project 2 - Returning a string
 		var lowerCase = string.toLowerCase();
 		var toArray = lowerCase.split(" ");
 		var newString = " ";
@@ -111,14 +111,14 @@ var myLibrary = function(){
 		var numPercent;
 		var isFuzzyMatch;
 		if(num1 > num2){
-			numPercent = (num2 / num1) * 100;
+			numPercent = (num2 / num1) * 100; //Make Up: Project 1 - Math.
 			if(numPercent <= percent){
 				isFuzzyMatch = num2 + " is " + numPercent + "% of " + num1 + " and within " + percent + "% of " + num1;
 			}else{
 				isFuzzyMatch = num2 + " is " + numPercent + "% of " + num1 + " and NOT within " + percent + "% of " + num1;
 			}
 		}else if(num1 < num2){
-			numPercent = (num1 / num2) * 100;
+			numPercent = (num1 / num2) * 100; //Make Up: Project 1 - Math
 			if(numPercent <= percent){
 				isFuzzyMatch = num1 + " is " + numPercent + "% of " + num2 + " and within " + percent + "% of " + num2;
 			}else{
@@ -143,11 +143,11 @@ var myLibrary = function(){
 		}
 
 		if(string == "hours"){
-			hourDifference = (dateDifference / 60000) /60;
+			hourDifference = (dateDifference / 60000) /60; //Make Up: Project 1 - Math
 			return	hourDifference;
 		}else if(string = "days"){
-			dayDifference = (dateDifference / 60000) /60;
-			dayDifference = dayDifference / 24;
+			dayDifference = (dateDifference / 60000) /60; //Make Up Project 1 - Math
+			dayDifference = dayDifference / 24; //Make Up: Project 1 - Math
 			return dayDifference;
 		}
 	};	
@@ -177,7 +177,7 @@ var myLibrary = function(){
 	}
 	
 
-	var arraySum = function(array){
+	var arraySum = function(array){ //Make Up: Project 2 - Passing Array as arguement
 		var i = 0
 		var answer = 0;
 		var a = new Number;
@@ -196,7 +196,23 @@ var myLibrary = function(){
 	}
 
 	var sortArrayWithKey = function(array,key){
-		
+		//var compare = function(a,b){
+		//	if(a.key < b.key){
+		//		return -1;
+		//	}
+		//	if(a.key > b.key){
+		//		return 1;
+		//	}
+		//	return 0;
+		//}
+		//var newArray = array.sort(function(a,b){ return a.key - b.key});
+		//return newArray;
+
+		var sort = function(element, index, array){
+			return (element > key);
+		}
+		var filtered = array.filter(sort);
+		return filtered;
 	}
 
 
@@ -217,6 +233,7 @@ var myLibrary = function(){
 		stringNumber: stringNumber,
 		smallestGreaterThan: smallestGreaterThan,
 		arraySum: arraySum,
+		sortArrayWithKey: sortArrayWithKey,
 	}
 }
 
@@ -256,4 +273,12 @@ console.log(smllestGreaterThan);
 var array = [1,"6","b","10","d",1,2,3,4,"e","f","g",5,6,7,"12"]
 var sumOfArray = myLib.arraySum(array);
 console.log(sumOfArray);
+
+var arrayWithKeys = [{a:3},{a:1},{a:5},{c:4},{c:7},{c:1},{b:1},{b:9},{b:2}]
+var sortArray = myLib.sortArrayWithKey
+console.log(sortArray);
+
+
+
+
 
