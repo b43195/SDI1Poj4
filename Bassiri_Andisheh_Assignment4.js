@@ -7,9 +7,7 @@
 ///***** STRINGS *****///
 
 //Does string follow phone number formatting?
-
-
-012-456-8901
+//
 var isPhoneNumber = function(string){
 	var numPattern;
 
@@ -19,7 +17,16 @@ var isPhoneNumber = function(string){
 	}else if(string.length == 12){
 		if(string.indexOf("-") == 3){
 			if(string.lastIndexOf("-") == 7){
-				
+				var i = 0;
+				while(i <= 12){
+					if(isNaN(string[i])){
+						numPattern = false
+					}
+					i++;
+				}
+				numPattern = true;
+				return numPattern;
+
 			}else{
 				numPattern = false;
 				return	numPattern;;
@@ -34,12 +41,12 @@ var isPhoneNumber = function(string){
 	}
 }
 
-var phoneNumFormat = isPhoneNumber("571-265-4221");
-console.log(phoneNumFormat);
+//var phoneNumFormat = isPhoneNumber("571-265-4221");
+//console.log(phoneNumFormat);
 
  
 //Does string follow email address format
-
+//Works!
 var isEmail = function(string){
 	var email;
 
@@ -62,7 +69,7 @@ console.log(email);
 */
 
 //Does string follow URL format?
-
+//Works!
 var isURL = function(string){
 	var url;
 
@@ -85,34 +92,31 @@ console.log(someURL);
 */
 
 //Title case a string
-
+//Works!
 var titleCase = function(string){
 	var lowerCase = string.toLowerCase();
 	var toArray = lowerCase.split(" ");
-	var newString = "";
+	var newString = " ";
 	var upCase;
+	var rest;
 
-	//for(n = 0 ; n < toArray.length; n++){
-		var tempString1 = toArray[0];
-		var tempString3 = " ";
+	for(i = 0; i < toArray.length; i++){
+		var tempString1 = toArray[i];
 		upCase = tempString1[0].toUpperCase();
-
-		for(n = 1; n < tempString1.length; n++){
-			var tempString2 = " ";
-			tempString2.concat(tempString1);
-		}
-		var newString = tempString3.concat(upCase, tempString1, " ");
-	//}
-	return newString;
+		rest = toArray[i].substring(1,tempString1.length);
+		newString += upCase.concat(rest," ");
+	}
+	var output = newString.trim();
+	return output;
 }
-/*
-var caseThis = titleCase("HELLO tHERE my LITTLE CHUM");
-console.log(caseThis)
-*/
+
+//var caseThis = titleCase("HELLO tHERE my LITTLE CHUM");
+//console.log(caseThis)
+
 
 
 //Change seperator
-
+//Works
 var changeSeperator = function(string,orgSeperator,newSeporator){
 	var orgString = string.split(orgSeperator);
 	var newString = orgString[0];
@@ -129,7 +133,7 @@ var changeSeperator = function(string,orgSeperator,newSeporator){
 ///***** NUMBERS *****/////
 
 // Format a number and it's decimal places.
-
+//Works
 var formatNumber = function(number,places){
 	var formattedNumber = number.toFixed(places);
 	return formattedNumber
@@ -139,7 +143,7 @@ var formatNumber = function(number,places){
 //console.log(formattedNumber);
 
 //Fuzzy Match -Puurrrrrr.....
-
+//Works
 var fuzzyMatch = function(num1,num2,percent){
 	var numPercent;
 	var isFuzzyMatch;
@@ -165,7 +169,7 @@ var fuzzyMatch = function(num1,num2,percent){
 //console.log(isMatch);
 
 //Difference between two days
-
+//Works
 var timeDifference = function(date1,date2,string){
 	var date1value = Date.parse(date1);
 	var date2value = Date.parse(date2);
@@ -192,9 +196,11 @@ var timeDifference = function(date1,date2,string){
 //var timeDif = timeDifference("Jan 20, 2012", "Jan 21, 2012", "days");
 //console.log(timeDif);
 
-
+//String to Number
+//Works
 var stringNumber = function(string){
 	var num = parseInt(string);
+	var notnum = NaN
 	if(num === NaN){
 		return notnum;
 	}else{
@@ -202,11 +208,13 @@ var stringNumber = function(string){
 	}
 }
 
-//var convert = stringNumber("40");
-///console.log(convert);
+//var convert = stringNumber("Hi");
+//console.log(convert);
 
 ///***** Arrays *****///
 
+//Smallest value greater than
+//Works
 var smallestGreaterThan = function(comparison,array){
 	var answer;
 	var biggerThan = function(element, index, array){
@@ -222,24 +230,28 @@ var smllestGreaterThan = smallestGreaterThan(40, array1);
 console.log(smllestGreaterThan);
 */
 
+// Sum of numbers in an Array
+//Does not ommit string number
 var arraySum = function(array){
 	var i = 0
 	var answer = 0;
+	var a = new Number;
 	while(i < array.length){
-		var a = array[i];1
+		a = array[i]
 
 		if(isNaN(a)){
-			console.log("not a number");
+			i++;
 		}else{
 			answer += a;
+			i++;
 		}
-		i++;
 	}
+
 	return answer;
 }
-/*
-var array = [1,"a","b","c","d",1,2,3,4,"e","f","g",5,6,7]
+
+var array = [1,"a","b","d","d",1,2,3,4,"e","f","g",5,6,7]
 var sumOfArray = arraySum(array);
 console.log(sumOfArray);
-*/
+
 
